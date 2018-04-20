@@ -287,7 +287,7 @@ public:
 	irr::gui::IGUIButton* btnTestMode;
 	irr::gui::IGUIButton* btnDeckEdit;
 	irr::gui::IGUIButton* btnModeExit;
-	irr::gui::IGUIButton* btnXPG;
+	irr::gui::IGUIButton* btnREP;
 	//lan
 	irr::gui::IGUIWindow* wLanWindow;
 	irr::gui::IGUIEditBox* ebNickName;
@@ -676,7 +676,7 @@ extern Game* mainGame;
 #define BUTTON_SEARCH_AGREE			383
 #define BUTTON_SEARCH_CANCEL			384
 
-#define BUTTON_XPG			        385
+#define BUTTON_REP			        385
 
 #define BUTTON_RENAME_DECK			386
 #define BUTTON_RENAME_DECK_SAVE			387
