@@ -11,11 +11,11 @@ BLOCK "StringFileInfo"
 BEGIN
 BLOCK "080404b0"
 BEGIN
-VALUE "FileDescription", "YGO-VI"
-VALUE "InternalName", "YGO-VI"
+VALUE "FileDescription", "YGO-VI-Simple"
+VALUE "InternalName", "YGO-VI-Simple"
 VALUE "LegalCopyright", "Copyright (C) 2018 Fluorohydride"
-VALUE "OriginalFilename", "YGO-VI"
-VALUE "ProductName", "YGO-VI"
+VALUE "OriginalFilename", "YGO-VI-Simple"
+VALUE "ProductName", "YGO-VI-Simple"
 VALUE "FileVersion", "1.034.3"
 VALUE "ProductVersion", "1.034.3"
 END

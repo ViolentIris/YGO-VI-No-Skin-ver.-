@@ -60,8 +60,8 @@ bool MenuHandler::OnEvent(const irr::SEvent& event) {
 				mainGame->device->closeDevice();
 				break;
 			}
-			case BUTTON_XPG: {
-                                system("start https://ocg.xpg.jp/deck/deck.fcgi");
+			case BUTTON_REP: {
+                                system("start https://rep.ygobbs.com/");
 				return true;
 				break;
 			}
