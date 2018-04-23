@@ -676,7 +676,7 @@ extern Game* mainGame;
 #define BUTTON_SEARCH_AGREE			383
 #define BUTTON_SEARCH_CANCEL			384
 
-#define BUTTON_REP			        385
+#define BUTTON_XPG			        385
 
 #define BUTTON_RENAME_DECK			386
 #define BUTTON_RENAME_DECK_SAVE			387
