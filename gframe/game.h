@@ -287,7 +287,7 @@ public:
 	irr::gui::IGUIButton* btnTestMode;
 	irr::gui::IGUIButton* btnDeckEdit;
 	irr::gui::IGUIButton* btnModeExit;
-	irr::gui::IGUIButton* btnREP;
+	irr::gui::IGUIButton* btnXPG;
 	//lan
 	irr::gui::IGUIWindow* wLanWindow;
 	irr::gui::IGUIEditBox* ebNickName;
