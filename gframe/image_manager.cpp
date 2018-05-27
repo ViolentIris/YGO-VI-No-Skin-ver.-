@@ -103,7 +103,7 @@ void ImageManager::RefreshRandomImageList() {
 	RefreshImageDir(L"cover2/", TEXTURE_COVER_O);
 	RefreshImageDir(L"attack/", TEXTURE_ATTACK);
 	RefreshImageDir(L"act/", TEXTURE_ACTIVATE);
-	RefreshImageDir(L"head2/", TEXTURE_HEAD_2);
+	RefreshImageDir(L"head2/", TEXTURE_HEAD_S);
 }
 void ImageManager::RefreshImageDir(std::wstring path, int image_type) {
 #ifdef _WIN32
