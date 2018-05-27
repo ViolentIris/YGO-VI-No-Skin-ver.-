@@ -391,6 +391,13 @@ void Game::DrawCard(ClientCard* pcard) {
 		driver->setMaterial(matManager.mTexture);
 		driver->drawVertexPrimitiveList(matManager.vNegate, 4, matManager.iRectangle, 2);
 	}
+	if(!dInfo.isReplay && dInfo.player_type < 7) {
+	    driver->draw2DImage(imageManager.tHead[0], ResizeCardMid(330, 60, 410, 140, 455, 41), rect<s32>(0, 0, 80, 80), 0, 0, true);
+		driver->draw2DImage(imageManager.tHead[1], ResizeCardMid(910, 60, 990, 140, 862, 41), rect<s32>(0, 0, 80, 80), 0, 0, true);
+	} else {
+	    driver->draw2DImage(imageManager.tHead[0], ResizeCardMid(330, 60, 410, 140, 455, 41), rect<s32>(0, 0, 80, 80), 0, 0, true);
+		driver->draw2DImage(imageManager.tHead[1], ResizeCardMid(910, 60, 990, 140, 862, 41), rect<s32>(0, 0, 80, 80), 0, 0, true);
+	}
 	if(pcard->cmdFlag & COMMAND_ATTACK) {
 		matManager.mTexture.setTexture(0, imageManager.tAttack);
 		driver->setMaterial(matManager.mTexture);

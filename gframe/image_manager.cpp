@@ -22,6 +22,8 @@ bool ImageManager::Initial() {
 	if(!tCover[1])
 		tCover[1] = tCover[0];
 	tUnknown = driver->getTexture("textures/unknown.jpg");
+	tHead[0] = driver->getTexture("textures/head/head_0.jpg");
+	tHead[1] = GetRandomImage(TEXTURE_HEAD_S);
 	tAct = GetRandomImage(TEXTURE_ACTIVATE);
 	tAttack = GetRandomImage(TEXTURE_ATTACK);
 	if(!tAct)
@@ -101,6 +103,7 @@ void ImageManager::RefreshRandomImageList() {
 	RefreshImageDir(L"cover2/", TEXTURE_COVER_O);
 	RefreshImageDir(L"attack/", TEXTURE_ATTACK);
 	RefreshImageDir(L"act/", TEXTURE_ACTIVATE);
+	RefreshImageDir(L"head2/", TEXTURE_HEAD_2);
 }
 void ImageManager::RefreshImageDir(std::wstring path, int image_type) {
 #ifdef _WIN32
