@@ -1444,8 +1444,63 @@ void Game::AddDebugMsg(char* msg)
 		fclose(fp);
 	}
 }
+bool Game::MakeDirectory(const std::string folder) {
+    std::string folder_builder;
+    std::string sub;
+    sub.reserve(folder.size());
+    for(auto it = folder.begin(); it != folder.end(); ++it) {
+        const char c = *it;
+        sub.push_back(c);
+        if(c == '/' || it == folder.end() - 1) {
+            folder_builder.append(sub);
+            if(access(folder_builder.c_str(), 0) != 0)
+#ifdef _WIN32
+                if(mkdir(folder_builder.c_str()) != 0)
+#else
+                if(mkdir(folder_builder.c_str(), 0777) != 0)
+#endif
+                    return false;
+            sub.clear();
+        }
+    }
+    return true;
+}
+void Game::initUtils() {
+	//user files
+	MakeDirectory("replay");
+	MakeDirectory("screenshots");
+	//files in ygopro-starter-pack
+	MakeDirectory("deck");
+	MakeDirectory("single");
+	//original files
+	MakeDirectory("skin");
+	MakeDirectory("textures");
+	//subdirs in textures
+	MakeDirectory("textures/act");
+	MakeDirectory("textures/attack");
+	MakeDirectory("textures/bg");
+	MakeDirectory("textures/bg_deck");
+	MakeDirectory("textures/bg_menu");
+	MakeDirectory("textures/cover");
+	MakeDirectory("textures/cover2");
+	MakeDirectory("textures/extra");
+	//sound
+	MakeDirectory("sound");
+	MakeDirectory("sound/BGM");
+	MakeDirectory("sound/BGM/advantage");
+	MakeDirectory("sound/BGM/deck");
+	MakeDirectory("sound/BGM/disadvantage");
+	MakeDirectory("sound/BGM/duel");
+	MakeDirectory("sound/BGM/lose");
+	MakeDirectory("sound/BGM/menu");
+	MakeDirectory("sound/BGM/win");
+	//pics
+	MakeDirectory("pics");
+	MakeDirectory("pics/field");
+}
 void Game::ClearTextures() {
 	matManager.mCard.setTexture(0, 0);
+	imageManager.tHead[1] = imageManager.GetRandomImage(TEXTURE_HEAD_S);
 	imgCard->setImage(imageManager.tCover[0]);
 	scrCardText->setVisible(false);
 	imgCard->setScaleImage(true);
@@ -1777,6 +1832,17 @@ void Game::FlashWindow() {
 	fi.dwTimeout = 0;
 	FlashWindowEx(&fi);
 #endif
+}
+void Game::takeScreenshot() {
+	irr::video::IImage* const image = driver->createScreenShot();
+	if(image) {
+		irr::c8 filename[64];
+		snprintf(filename, 64, "screenshots/ygopro_%u.png", device->getTimer()->getRealTime());
+		if (!driver->writeImageToFile(image, filename))
+			device->getLogger()->log(L"Failed to take screenshot.", irr::ELL_WARNING);
+		image->drop();
+	} else
+		device->getLogger()->log(L"Failed to take screenshot.", irr::ELL_WARNING);
 }
 void Game::SetCursor(ECURSOR_ICON icon) {
 	ICursorControl* cursor = mainGame->device->getCursorControl();

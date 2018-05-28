@@ -147,6 +147,7 @@ public:
 	void AddChatMsg(wchar_t* msg, int player);
 	void ClearChatMsg();
 	void AddDebugMsg(char* msgbuf);
+	bool MakeDirectory(const std::string folder);
 	void ClearTextures();
 	void CloseDuelWindow();
 
@@ -174,6 +175,7 @@ public:
 
 	void SetWindowsIcon();
 	void FlashWindow();
+	void takeScreenshot();
 	void SetCursor(ECURSOR_ICON icon);
 
 	Mutex gMutex;
