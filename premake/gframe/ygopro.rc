@@ -16,8 +16,8 @@ VALUE "InternalName", "YGO-VI-Simple"
 VALUE "LegalCopyright", "Copyright (C) 2018 Fluorohydride"
 VALUE "OriginalFilename", "YGO-VI-Simple"
 VALUE "ProductName", "YGO-VI-Simple"
-VALUE "FileVersion", "1.034.3"
-VALUE "ProductVersion", "1.034.3"
+VALUE "FileVersion", "1.034.4"
+VALUE "ProductVersion", "1.034.4"
 END
 END
 BLOCK "VarFileInfo"
