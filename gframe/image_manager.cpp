@@ -67,6 +67,14 @@ bool ImageManager::Initial() {
 	tFieldTransparent[0] = driver->getTexture("textures/field-transparent2.png");
 	tField[1] = driver->getTexture("textures/field3.png");
 	tFieldTransparent[1] = driver->getTexture("textures/field-transparent3.png");
+	tCardType[0] = driver->getTexture("textures/type/monster.jpg");
+	tCardType[1] = driver->getTexture("textures/type/spell.jpg");
+	tCardType[2] = driver->getTexture("textures/type/trap.jpg");
+	tCardType[3] = driver->getTexture("textures/type/fusion.jpg");
+	tCardType[4] = driver->getTexture("textures/type/synchro.jpg");
+	tCardType[5] = driver->getTexture("textures/type/xyz.jpg");
+	tCardType[6] = driver->getTexture("textures/type/link.jpg");
+	tClock = driver->getTexture("textures/clock.png");
     int i = 0;
 	char buff[100];
 	for (; i < 14; i++) {
