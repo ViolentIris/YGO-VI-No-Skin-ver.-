@@ -33,8 +33,8 @@ bool ImageManager::Initial() {
 	tChain = driver->getTexture("textures/chain.png");
 	tNegated = driver->getTexture("textures/negated.png");
 	tNumber = driver->getTexture("textures/number.png");
-	tLPBar = driver->getTexture("textures/lpr.png");
-	tLPFrame = driver->getTexture("textures/lpfr.png");
+	tLPBar = driver->getTexture("textures/lp.png");
+	tLPFrame = driver->getTexture("textures/lpf.png");
 	tMask = driver->getTexture("textures/mask.png");
 	tEquip = driver->getTexture("textures/equip.png");
 	tTarget = driver->getTexture("textures/target.png");
@@ -75,7 +75,7 @@ bool ImageManager::Initial() {
 	tCardType[5] = driver->getTexture("textures/type/xyz.jpg");
 	tCardType[6] = driver->getTexture("textures/type/link.jpg");
 	tClock = driver->getTexture("textures/clock.png");
-    int i = 0;
+	int i = 0;
 	char buff[100];
 	for (; i < 14; i++) {
 		snprintf(buff, 100, "textures/pscale/rscale_%d.png", i);
