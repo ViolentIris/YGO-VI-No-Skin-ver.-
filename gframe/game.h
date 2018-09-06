@@ -88,6 +88,7 @@ struct DuelInfo {
 	wchar_t str_card_count[2][16];
 	video::SColor card_count_color[2];
 	bool isReplaySwapped;
+	std::vector<unsigned int> announce_cache;
 };
 
 struct BotInfo {
@@ -705,4 +706,6 @@ extern Game* mainGame;
 #define TEXTURE_HEAD_S				7
 
 #define DEFAULT_DUEL_RULE			4
+
+#define CARD_ARTWORK_VERSIONS_OFFSET	10
 #endif // GAME_H
