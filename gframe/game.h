@@ -44,6 +44,7 @@ struct Config {
 	int chkIgnoreDeckChanges;
 	int defaultOT;
 	int enable_bot_mode;
+	int quick_animation;
 	bool enable_sound;
 	bool enable_music;
 	double sound_volume;
@@ -276,6 +277,7 @@ public:
 	irr::gui::IGUICheckBox* chkRandomPos;
 	irr::gui::IGUICheckBox* chkAutoChain;
 	irr::gui::IGUICheckBox* chkWaitChain;
+	irr::gui::IGUICheckBox* chkQuickAnimation;
 	irr::gui::IGUICheckBox* chkHideSetname;
 	irr::gui::IGUICheckBox* chkHideHintButton;
 	irr::gui::IGUICheckBox* chkIgnoreDeckChanges;
@@ -679,6 +681,7 @@ extern Game* mainGame;
 #define CHECKBOX_ENABLE_SOUND		361
 #define CHECKBOX_ENABLE_MUSIC		362
 #define SCROLL_VOLUME				363
+#define CHECKBOX_QUICK_ANIMATION	364
 
 #define COMBOBOX_SORTTYPE			370
 #define COMBOBOX_LIMIT				371
