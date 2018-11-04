@@ -21,6 +21,24 @@ bool ImageManager::Initial() {
 		tCover[1] = GetRandomImage(TEXTURE_COVER_S);
 	if(!tCover[1])
 		tCover[1] = tCover[0];
+	tCover[2] = GetRandomImage(TEXTURE_COVER_S2);
+	if(!tCover[2])
+		tCover[2] = driver->getTexture("textures/cover3.jpg");
+	if(!tCover[2])
+		tCover[2] = GetRandomImage(TEXTURE_COVER_S);
+	if(!tCover[2])
+		tCover[2] = tCover[1];
+	tCover[3] = GetRandomImage(TEXTURE_COVER_O2);
+	if(!tCover[3])
+		tCover[3] = driver->getTexture("textures/cover4.jpg");
+	if(!tCover[3])
+		tCover[3] = GetRandomImage(TEXTURE_COVER_O);
+	if(!tCover[3])
+		tCover[3] = tCover[2];
+	tCover[4] = tCover[0];
+	tCover[5] = tCover[1];
+	tCover[6] = tCover[2];
+	tCover[7] = tCover[3];
 	tUnknown = driver->getTexture("textures/unknown.jpg");
 	tHead[0] = driver->getTexture("textures/head.jpg");
 	tHead[1] = GetRandomImage(TEXTURE_HEAD_S);
@@ -109,6 +127,8 @@ void ImageManager::RefreshRandomImageList() {
 	RefreshImageDir(L"bg_menu/", TEXTURE_MENU);
 	RefreshImageDir(L"cover/", TEXTURE_COVER_S);
 	RefreshImageDir(L"cover2/", TEXTURE_COVER_O);
+	RefreshImageDir(L"cover3/", TEXTURE_COVER_S2);
+	RefreshImageDir(L"cover4/", TEXTURE_COVER_O2);
 	RefreshImageDir(L"attack/", TEXTURE_ATTACK);
 	RefreshImageDir(L"act/", TEXTURE_ACTIVATE);
 	RefreshImageDir(L"head/", TEXTURE_HEAD_S);
