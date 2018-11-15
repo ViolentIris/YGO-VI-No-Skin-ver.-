@@ -304,7 +304,14 @@ public:
 	irr::gui::IGUIButton* btnTestMode;
 	irr::gui::IGUIButton* btnDeckEdit;
 	irr::gui::IGUIButton* btnModeExit;
+	irr::gui::IGUIButton* btnOther;
+	//other
+	irr::gui::IGUIWindow* wOther;
 	irr::gui::IGUIButton* btnXPG;
+	irr::gui::IGUIButton* btnKANabell;
+	irr::gui::IGUIButton* btnOCNK;
+	irr::gui::IGUIButton* btnOtherExit;
+	irr::gui::IGUIButton* btnLantern;
 	//lan
 	irr::gui::IGUIWindow* wLanWindow;
 	irr::gui::IGUIEditBox* ebNickName;
