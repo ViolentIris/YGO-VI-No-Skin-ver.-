@@ -710,11 +710,17 @@ extern Game* mainGame;
 #define BUTTON_SEARCH_AGREE			383
 #define BUTTON_SEARCH_CANCEL		384
 
-#define BUTTON_XPG			        385
+#define BUTTON_OTHER			        385
 
 #define BUTTON_RENAME_DECK			386
 #define BUTTON_RENAME_DECK_SAVE			387
 #define BUTTON_RENAME_DECK_CANCEL		388
+
+#define BUTTON_XPG						389
+#define BUTTON_KANABELL					390
+#define BUTTON_OCNK						391
+#define BUTTON_LANTERN					392
+#define BUTTON_OTHER_EXIT				393
 
 #define TEXTURE_DUEL				0
 #define TEXTURE_DECK				1
