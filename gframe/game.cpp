@@ -36,6 +36,7 @@ bool Game::Initialize() {
 	if(!device) {
 		ErrorLog("Failed to create Irrlicht Engine device!");
 		return false;
+	}
 	linePatternD3D = 0;
 	linePatternGL = 0x0f0f;
 	waitFrame = 0;
