@@ -1518,6 +1518,10 @@ void Game::initUtils() {
 void Game::ClearTextures() {
 	matManager.mCard.setTexture(0, 0);
 	imageManager.tHead[1] = imageManager.GetRandomImage(TEXTURE_HEAD_S);
+	imageManager.tCover[1] = imageManager.GetRandomImage(TEXTURE_COVER_O);
+	imageManager.tCover[2] = imageManager.GetRandomImage(TEXTURE_COVER_S2);
+	imageManager.tCover[3] = imageManager.GetRandomImage(TEXTURE_COVER_O2);
+	imageManager.tBackGround = imageManager.GetRandomImage(TEXTURE_DUEL);
 	imgCard->setImage(imageManager.tCover[0]);
 	scrCardText->setVisible(false);
 	imgCard->setScaleImage(true);
