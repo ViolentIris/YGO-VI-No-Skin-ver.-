@@ -1519,6 +1519,7 @@ void Game::ClearTextures() {
 	matManager.mCard.setTexture(0, 0);
 	imageManager.tHead[1] = imageManager.GetRandomImage(TEXTURE_HEAD_S);
 	imageManager.tBackGround = imageManager.GetRandomImage(TEXTURE_DUEL);
+	imageManager.tBackGround_deck = imageManager.GetRandomImage(TEXTURE_DECK);
 	imgCard->setImage(imageManager.tCover[0]);
 	scrCardText->setVisible(false);
 	imgCard->setScaleImage(true);
