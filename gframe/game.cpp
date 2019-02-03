@@ -1027,6 +1027,7 @@ void Game::RefreshReplay() {
 }
 void Game::RefreshSingleplay() {
 	lstSinglePlayList->clear();
+	stSinglePlayInfo->setText(L"");
 	FileSystem::TraversalDir(L"./single", [this](const wchar_t* name, bool isdir) {
 		if(!isdir && wcsrchr(name, '.') && !mywcsncasecmp(wcsrchr(name, '.'), L".lua", 4))
 			lstSinglePlayList->addItem(name);
