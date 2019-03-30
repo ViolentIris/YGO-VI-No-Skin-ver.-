@@ -149,6 +149,31 @@ void Game::DrawBackGround() {
 				DrawSelectionLine(matManager.vFieldSzone[1][i][rule], !(dField.selected_field & filter), 2, cv);
 		}
 	}
+	//draw total attack
+	if (mainGame->dInfo.total_attack[0] > 0) {
+	    matManager.mTexture.setTexture(0, imageManager.tTotalAtk);
+		driver->setMaterial(matManager.mTexture);
+		if (dInfo.duel_rule >= 4) {
+		    driver->drawVertexPrimitiveList(matManager.vTotalAtkme, 4, matManager.iRectangle, 2);
+			DrawShadowText(numFont, dInfo.str_total_attack[0], Resize(430, 346, 445, 366), rect<s32>(0, 1, 2, 0), dInfo.total_attack_color[0], 0xff000000, true, false, 0);
+	    } else {
+			driver->drawVertexPrimitiveList(matManager.vTotalAtkmeT, 4, matManager.iRectangle, 2);
+		    DrawShadowText(numFont, dInfo.str_total_attack[0], Resize(590, 326, 610, 346), rect<s32>(0, 1, 2, 0), dInfo.total_attack_color[0], 0xff000000, true, false, 0);
+	    }
+	}
+	if (mainGame->dInfo.total_attack[1] > 0) {
+		matManager.mTexture.setTexture(0, imageManager.tTotalAtk);
+		driver->setMaterial(matManager.mTexture);
+		if (dInfo.duel_rule >= 4) {
+		    driver->drawVertexPrimitiveList(matManager.vTotalAtkop, 4, matManager.iRectangle, 2);
+		    DrawShadowText(numFont, dInfo.str_total_attack[1], Resize(885, 271, 905, 291), rect<s32>(0, 1, 2, 0), dInfo.total_attack_color[1], 0xff000000, true, false, 0);
+	    } else {
+			driver->drawVertexPrimitiveList(matManager.vTotalAtkopT, 4, matManager.iRectangle, 2);
+		    DrawShadowText(numFont, dInfo.str_total_attack[1], Resize(740, 295, 760, 315), rect<s32>(0, 1, 2, 0), dInfo.total_attack_color[1], 0xff000000, true, false, 0);
+		
+	    }
+	}
+	
 	//disabled field
 	{
 		/*float cv[4] = {0.0f, 0.0f, 1.0f, 1.0f};*/
@@ -531,10 +556,10 @@ void Game::DrawMisc() {
 	//lp bar
 	if((dInfo.turn % 2 && dInfo.isFirst && !dInfo.is_swapped) || (!(dInfo.turn % 2) && !dInfo.isFirst && !dInfo.is_swapped) || (!(dInfo.turn % 2) && dInfo.isFirst && dInfo.is_swapped) || (dInfo.turn % 2 && !dInfo.isFirst && dInfo.is_swapped)) {
 		driver->draw2DRectangle(0xa0000000, Resize(327, 8, 630, 51));
-		driver->draw2DRectangleOutline(Resize(327, 8, 630, 51), 0xff900000);
+		driver->draw2DRectangleOutline(Resize(327, 8, 630, 51), 0xff644300);
 	} else {
 		driver->draw2DRectangle(0xa0000000, Resize(689, 8, 991, 51));
-		driver->draw2DRectangleOutline(Resize(689, 8, 991, 51), 0xff900000);
+		driver->draw2DRectangleOutline(Resize(689, 8, 991, 51), 0xff644300);
 	}
 	driver->draw2DImage(imageManager.tLPFrame, Resize(330, 10, 629, 30), recti(0, 0, 200, 20), 0, 0, true);
 	driver->draw2DImage(imageManager.tLPFrame, Resize(691, 10, 990, 30), recti(0, 0, 200, 20), 0, 0, true);
