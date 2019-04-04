@@ -349,14 +349,14 @@ irr::video::ITexture* ImageManager::GetTexture(int code, bool fit) {
 			return GetTextureThumb(code);
 		}
 		tMap[fit ? 1 : 0][code] = img;
-		tUnknownFit = GetTextureFromFile("textures/unknown.jpg", width, height);
-		return (img == NULL) ? (fit ? tUnknownFit : tUnknown) : img;
+		irr::video::ITexture* tUnknownFit = GetTextureFromFile("textures/unknown.jpg", width, height);
+		return (img == NULL) ? tUnknownFit : img;
 	}
 	if(tit->second)
 		return tit->second;
 	else
-		tUnknownFit = GetTextureFromFile("textures/unknown.jpg", width, height);
-		return mainGame->gameConf.use_image_scale ? (fit ? tUnknownFit : tUnknown) : GetTextureThumb(code);
+		irr::video::ITexture* tUnknownFit = GetTextureFromFile("textures/unknown.jpg", width, height);
+		return mainGame->gameConf.use_image_scale ? tUnknownFit : GetTextureThumb(code);
 }
 irr::video::ITexture* ImageManager::GetTextureThumb(int code) {
 	if(code == 0)
