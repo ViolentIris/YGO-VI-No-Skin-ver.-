@@ -317,6 +317,7 @@ irr::video::ITexture* ImageManager::GetTexture(int code, bool fit) {
 	irr::s32 imgHeight = CARD_IMG_HEIGHT * mainGame->yScale;
 	irr::s32 imgWidthThumb = CARD_THUMB_WIDTH * mainGame->xScale;
 	irr::s32 imgHeightThumb = CARD_THUMB_HEIGHT * mainGame->yScale;
+	float mul = (mainGame->xScale > mainGame->yScale) ? mainGame->yScale : mainGame->xScale;
 	irr::s32 imgWidthFit = CARD_IMG_WIDTH * mul;
 	irr::s32 imgHeightFit = CARD_IMG_HEIGHT * mul;
 	tUnknown = GetTextureFromFile("textures/unknown.jpg", CARD_IMG_WIDTH, CARD_IMG_HEIGHT);
@@ -370,6 +371,7 @@ irr::video::ITexture* ImageManager::GetTextureThumb(int code) {
 	irr::s32 imgHeight = CARD_IMG_HEIGHT * mainGame->yScale;
 	irr::s32 imgWidthThumb = CARD_THUMB_WIDTH * mainGame->xScale;
 	irr::s32 imgHeightThumb = CARD_THUMB_HEIGHT * mainGame->yScale;
+	float mul = (mainGame->xScale > mainGame->yScale) ? mainGame->yScale : mainGame->xScale;
 	irr::s32 imgWidthFit = CARD_IMG_WIDTH * mul;
 	irr::s32 imgHeightFit = CARD_IMG_HEIGHT * mul;
 	tUnknown = GetTextureFromFile("textures/unknown.jpg", CARD_IMG_WIDTH, CARD_IMG_HEIGHT);
