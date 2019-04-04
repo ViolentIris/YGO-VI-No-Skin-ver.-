@@ -39,7 +39,7 @@ bool ImageManager::Initial()  {
 	tCover[5] = tCover[1];
 	tCover[6] = tCover[2];
 	tCover[7] = tCover[3];
-	tUnknown = driver->getTexture("textures/unknown.jpg");
+	tUnknown = NULL;
 	tHead[0] = driver->getTexture("textures/head.jpg");
 	tHead[1] = GetRandomImage(TEXTURE_HEAD_S);
 	tAct = GetRandomImage(TEXTURE_ACTIVATE);
@@ -315,14 +315,11 @@ irr::video::ITexture* ImageManager::GetTextureExpansionsDirectry(const char* pat
 irr::video::ITexture* ImageManager::GetTexture(int code, bool fit) {
 	irr::s32 imgWidth = CARD_IMG_WIDTH * mainGame->xScale;
 	irr::s32 imgHeight = CARD_IMG_HEIGHT * mainGame->yScale;
-	irr::s32 imgWidthThumb = CARD_THUMB_WIDTH * mainGame->xScale;
-	irr::s32 imgHeightThumb = CARD_THUMB_HEIGHT * mainGame->yScale;
 	float mul = (mainGame->xScale > mainGame->yScale) ? mainGame->yScale : mainGame->xScale;
 	irr::s32 imgWidthFit = CARD_IMG_WIDTH * mul;
 	irr::s32 imgHeightFit = CARD_IMG_HEIGHT * mul;
 	tUnknown = GetTextureFromFile("textures/unknown.jpg", CARD_IMG_WIDTH, CARD_IMG_HEIGHT);
 	tUnknownFit = GetTextureFromFile("textures/unknown.jpg", imgWidthFit, imgHeightFit);
-	tUnknownThumb = GetTextureFromFile("textures/unknown.jpg", imgWidthThumb, imgHeightThumb);
 	if(code == 0)
 		return fit ? tUnknownFit : tUnknown;
 	int width = CARD_IMG_WIDTH;
@@ -367,15 +364,8 @@ irr::video::ITexture* ImageManager::GetTexture(int code, bool fit) {
 		return mainGame->gameConf.use_image_scale ? (fit ? tUnknownFit : tUnknown) : GetTextureThumb(code);
 }
 irr::video::ITexture* ImageManager::GetTextureThumb(int code) {
-	irr::s32 imgWidth = CARD_IMG_WIDTH * mainGame->xScale;
-	irr::s32 imgHeight = CARD_IMG_HEIGHT * mainGame->yScale;
 	irr::s32 imgWidthThumb = CARD_THUMB_WIDTH * mainGame->xScale;
 	irr::s32 imgHeightThumb = CARD_THUMB_HEIGHT * mainGame->yScale;
-	float mul = (mainGame->xScale > mainGame->yScale) ? mainGame->yScale : mainGame->xScale;
-	irr::s32 imgWidthFit = CARD_IMG_WIDTH * mul;
-	irr::s32 imgHeightFit = CARD_IMG_HEIGHT * mul;
-	tUnknown = GetTextureFromFile("textures/unknown.jpg", CARD_IMG_WIDTH, CARD_IMG_HEIGHT);
-	tUnknownFit = GetTextureFromFile("textures/unknown.jpg", imgWidthFit, imgHeightFit);
 	tUnknownThumb = GetTextureFromFile("textures/unknown.jpg", imgWidthThumb, imgHeightThumb);
 	if(code == 0)
 		return tUnknownThumb;
