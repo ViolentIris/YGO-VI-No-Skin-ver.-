@@ -355,8 +355,7 @@ irr::video::ITexture* ImageManager::GetTexture(int code, bool fit) {
 	if(tit->second)
 		return tit->second;
 	else
-		irr::video::ITexture* tUnknownFit = GetTextureFromFile("textures/unknown.jpg", width, height);
-		return mainGame->gameConf.use_image_scale ? tUnknownFit : GetTextureThumb(code);
+		return mainGame->gameConf.use_image_scale ? tUnknown : GetTextureThumb(code);
 }
 irr::video::ITexture* ImageManager::GetTextureThumb(int code) {
 	if(code == 0)
