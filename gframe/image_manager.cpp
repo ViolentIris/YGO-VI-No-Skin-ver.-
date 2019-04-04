@@ -327,7 +327,7 @@ irr::video::ITexture* ImageManager::GetTexture(int code, bool fit) {
 	} else if(fit) {
 		width = width * mainGame->xScale;
 		height = height * mainGame->yScale;
-		tUnknownFit = GetTextureFromFile("textures/unknown.jpg", width, height)
+		tUnknownFit = GetTextureFromFile("textures/unknown.jpg", width, height)£»
 	}
 	auto tit = tMap[fit ? 1 : 0].find(code);
 	if(tit == tMap[fit ? 1 : 0].end()) {
