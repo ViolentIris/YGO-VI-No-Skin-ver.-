@@ -39,7 +39,7 @@ bool ImageManager::Initial()  {
 	tCover[5] = tCover[1];
 	tCover[6] = tCover[2];
 	tCover[7] = tCover[3];
-	tUnknown = NULL;
+	tUnknown = driver->getTexture("textures/unknown.jpg");
 	tHead[0] = driver->getTexture("textures/head.jpg");
 	tHead[1] = GetRandomImage(TEXTURE_HEAD_S);
 	tAct = GetRandomImage(TEXTURE_ACTIVATE);
@@ -313,15 +313,8 @@ irr::video::ITexture* ImageManager::GetTextureExpansionsDirectry(const char* pat
 	return GetTextureFromFile(fpath, width, height);
 }
 irr::video::ITexture* ImageManager::GetTexture(int code, bool fit) {
-	irr::s32 imgWidth = CARD_IMG_WIDTH * mainGame->xScale;
-	irr::s32 imgHeight = CARD_IMG_HEIGHT * mainGame->yScale;
-	float mul = (mainGame->xScale > mainGame->yScale) ? mainGame->yScale : mainGame->xScale;
-	irr::s32 imgWidthFit = CARD_IMG_WIDTH * mul;
-	irr::s32 imgHeightFit = CARD_IMG_HEIGHT * mul;
-	tUnknown = GetTextureFromFile("textures/unknown.jpg", CARD_IMG_WIDTH, CARD_IMG_HEIGHT);
-	tUnknownFit = GetTextureFromFile("textures/unknown.jpg", imgWidthFit, imgHeightFit);
 	if(code == 0)
-		return fit ? tUnknownFit : tUnknown;
+		return tUnknown;
 	int width = CARD_IMG_WIDTH;
 	int height = CARD_IMG_HEIGHT;
 	if(fit) {
@@ -330,9 +323,11 @@ irr::video::ITexture* ImageManager::GetTexture(int code, bool fit) {
 			mul = mainGame->yScale;
 		width = width * mul;
 		height = height * mul;
+		tUnknownFit = GetTextureFromFile("textures/unknown.jpg", width, height);
 	} else if(fit) {
 		width = width * mainGame->xScale;
 		height = height * mainGame->yScale;
+		tUnknownFit = GetTextureFromFile("textures/unknown.jpg", width, height)
 	}
 	auto tit = tMap[fit ? 1 : 0].find(code);
 	if(tit == tMap[fit ? 1 : 0].end()) {
@@ -364,11 +359,8 @@ irr::video::ITexture* ImageManager::GetTexture(int code, bool fit) {
 		return mainGame->gameConf.use_image_scale ? (fit ? tUnknownFit : tUnknown) : GetTextureThumb(code);
 }
 irr::video::ITexture* ImageManager::GetTextureThumb(int code) {
-	irr::s32 imgWidthThumb = CARD_THUMB_WIDTH * mainGame->xScale;
-	irr::s32 imgHeightThumb = CARD_THUMB_HEIGHT * mainGame->yScale;
-	tUnknownThumb = GetTextureFromFile("textures/unknown.jpg", imgWidthThumb, imgHeightThumb);
 	if(code == 0)
-		return tUnknownThumb;
+		return tUnknown;
 	auto tit = tThumb.find(code);
 	int width = CARD_THUMB_WIDTH * mainGame->xScale;
 	int height = CARD_THUMB_HEIGHT * mainGame->yScale;
@@ -410,12 +402,12 @@ irr::video::ITexture* ImageManager::GetTextureThumb(int code) {
 			}
 		}
 		tThumb[code] = img;
-		return (img == NULL) ? tUnknownThumb : img;
+		return (img == NULL) ? tUnknown : img;
 	}
 	if(tit->second)
 		return tit->second;
 	else
-		return tUnknownThumb;
+		return tUnknown;
 }
 irr::video::ITexture* ImageManager::GetTextureField(int code) {
 	if(code == 0)
