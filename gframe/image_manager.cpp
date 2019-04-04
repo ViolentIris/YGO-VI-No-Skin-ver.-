@@ -323,11 +323,9 @@ irr::video::ITexture* ImageManager::GetTexture(int code, bool fit) {
 			mul = mainGame->yScale;
 		width = width * mul;
 		height = height * mul;
-		tUnknownFit = GetTextureFromFile("textures/unknown.jpg", width, height);
 	} else if(fit) {
 		width = width * mainGame->xScale;
 		height = height * mainGame->yScale;
-		tUnknownFit = GetTextureFromFile("textures/unknown.jpg", width, height);
 	}
 	auto tit = tMap[fit ? 1 : 0].find(code);
 	if(tit == tMap[fit ? 1 : 0].end()) {
@@ -351,11 +349,13 @@ irr::video::ITexture* ImageManager::GetTexture(int code, bool fit) {
 			return GetTextureThumb(code);
 		}
 		tMap[fit ? 1 : 0][code] = img;
+		tUnknownFit = GetTextureFromFile("textures/unknown.jpg", width, height);
 		return (img == NULL) ? (fit ? tUnknownFit : tUnknown) : img;
 	}
 	if(tit->second)
 		return tit->second;
 	else
+		tUnknownFit = GetTextureFromFile("textures/unknown.jpg", width, height);
 		return mainGame->gameConf.use_image_scale ? (fit ? tUnknownFit : tUnknown) : GetTextureThumb(code);
 }
 irr::video::ITexture* ImageManager::GetTextureThumb(int code) {
