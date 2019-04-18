@@ -10,25 +10,32 @@ ImageManager imageManager;
 
 bool ImageManager::Initial()  {
 	RefreshRandomImageList();
-
-	tCover[0] = GetRandomImage(TEXTURE_COVER_S);
+	tCover[0] = NULL;
+	tCover[1] = NULL;
+	tCover[2] = NULL;
+	tCover[3] = NULL;
+	if(mainGame->gameConf.random)
+		tCover[0] = GetRandomImage(TEXTURE_COVER_S);
 	if(!tCover[0])
 		tCover[0] = driver->getTexture("textures/cover.jpg");
-	tCover[1] = GetRandomImage(TEXTURE_COVER_O);
+	if(mainGame->gameConf.random)
+		tCover[1] = GetRandomImage(TEXTURE_COVER_O);
 	if(!tCover[1])
 		tCover[1] = driver->getTexture("textures/cover2.jpg");
 	if(!tCover[1])
 		tCover[1] = GetRandomImage(TEXTURE_COVER_S);
 	if(!tCover[1])
 		tCover[1] = tCover[0];
-	tCover[2] = GetRandomImage(TEXTURE_COVER_S2);
+	if(mainGame->gameConf.random)
+		tCover[2] = GetRandomImage(TEXTURE_COVER_S2);
 	if(!tCover[2])
 		tCover[2] = driver->getTexture("textures/cover3.jpg");
 	if(!tCover[2])
 		tCover[2] = GetRandomImage(TEXTURE_COVER_S);
 	if(!tCover[2])
 		tCover[2] = tCover[1];
-	tCover[3] = GetRandomImage(TEXTURE_COVER_O2);
+	if(mainGame->gameConf.random)
+		tCover[3] = GetRandomImage(TEXTURE_COVER_O2);
 	if(!tCover[3])
 		tCover[3] = driver->getTexture("textures/cover4.jpg");
 	if(!tCover[3])
@@ -42,8 +49,12 @@ bool ImageManager::Initial()  {
 	tUnknown = driver->getTexture("textures/unknown.jpg");
 	tHead[0] = driver->getTexture("textures/head.jpg");
 	tHead[1] = GetRandomImage(TEXTURE_HEAD_S);
-	tAct = GetRandomImage(TEXTURE_ACTIVATE);
-	tAttack = GetRandomImage(TEXTURE_ATTACK);
+	tAct = NULL;
+	tAttack = NULL;
+	if(mainGame->gameConf.random)
+		tAct = GetRandomImage(TEXTURE_ACTIVATE);
+	if(mainGame->gameConf.random)
+		tAttack = GetRandomImage(TEXTURE_ATTACK);
 	if(!tAct)
 		tAct = driver->getTexture("textures/act.png");
 	if(!tAttack)
@@ -63,19 +74,25 @@ bool ImageManager::Initial()  {
 	tHand[0] = driver->getTexture("textures/f1.jpg");
 	tHand[1] = driver->getTexture("textures/f2.jpg");
 	tHand[2] = driver->getTexture("textures/f3.jpg");
-	tBackGround = GetRandomImage(TEXTURE_DUEL);
+	tBackGround = NULL;
+	tBackGround_menu = NULL;
+	tBackGround_deck = NULL;
+	if(mainGame->gameConf.random)
+		tBackGround = GetRandomImage(TEXTURE_DUEL);
 	if(!tBackGround)
 		tBackGround = driver->getTexture("textures/bg.jpg");
 	if(!tBackGround)
 		tBackGround = driver->getTexture("textures/bg_duel.jpg");
-	tBackGround_menu = GetRandomImage(TEXTURE_MENU);
+	if(mainGame->gameConf.random)
+		tBackGround_menu = GetRandomImage(TEXTURE_MENU);
 	if(!tBackGround_menu)
 		tBackGround_menu = driver->getTexture("textures/bg_menu.jpg");
 	if(!tBackGround_menu)
 		tBackGround_menu = GetRandomImage(TEXTURE_DUEL);
 	if(!tBackGround_menu)
 		tBackGround_menu = tBackGround;
-	tBackGround_deck = GetRandomImage(TEXTURE_DECK);
+	if(mainGame->gameConf.random)
+		tBackGround_deck = GetRandomImage(TEXTURE_DECK);
 	if(!tBackGround_deck)
 		tBackGround_deck = driver->getTexture("textures/bg_deck.jpg");
 	if(!tBackGround_deck)

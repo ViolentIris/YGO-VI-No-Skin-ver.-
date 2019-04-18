@@ -298,6 +298,7 @@ public:
 	irr::gui::IGUICheckBox* chkHideSetname;
 	irr::gui::IGUICheckBox* chkHideHintButton;
 	irr::gui::IGUICheckBox* chkIgnoreDeckChanges;
+	irr::gui::IGUICheckBox* chkMRandom;
 	irr::gui::IGUICheckBox* chkAutoSearch;
 	irr::gui::IGUICheckBox* chkMultiKeywords;
 	irr::gui::IGUICheckBox* chkRegex;
@@ -731,6 +732,7 @@ extern Game* mainGame;
 #define CHECKBOX_ENABLE_MUSIC		362
 #define SCROLL_VOLUME				363
 #define CHECKBOX_QUICK_ANIMATION	364
+#define CHECKBOX_RDM				365
 
 #define COMBOBOX_SORTTYPE			370
 #define COMBOBOX_LIMIT				371

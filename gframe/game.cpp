@@ -358,6 +358,9 @@ bool Game::Initialize() {
 	chkIgnoreDeckChanges = env->addCheckBox(false, rect<s32>(posX, posY, posX + 260, posY + 25), tabSystem, -1, dataManager.GetSysString(1357));
 	chkIgnoreDeckChanges->setChecked(gameConf.chkIgnoreDeckChanges != 0);
 	posY += 30;
+	chkMRandom = env->addCheckBox(false, rect<s32>(posX, posY, posX + 260, posY + 25), tabSystem, CHECKBOX_RDM, dataManager.GetSysString(1437));
+	chkMRandom->setChecked(gameConf.random != 0);
+	posY += 30;
 	chkAutoSearch = env->addCheckBox(false, rect<s32>(posX, posY, posX + 260, posY + 25), tabSystem, CHECKBOX_AUTO_SEARCH, dataManager.GetSysString(1358));
 	chkAutoSearch->setChecked(gameConf.auto_search_limit >= 0);
 	posY += 30;
@@ -1163,6 +1166,7 @@ void Game::LoadConfig() {
 	gameConf.window_height = 640;
 	gameConf.resize_popup_menu = false;
 	gameConf.chkEnablePScale = 1;
+	gameConf.random = 1;
 	while(fgets(linebuf, 256, fp)) {
 		sscanf(linebuf, "%s = %s", strbuf, valbuf);
 		if(!strcmp(strbuf, "antialias")) {
@@ -1247,6 +1251,8 @@ void Game::LoadConfig() {
 			gameConf.music_mode = atoi(valbuf);
 		} else if(!strcmp(strbuf, "enable_pendulum_scale")) {
 			gameConf.chkEnablePScale = atoi(valbuf);
+		} else if (!strcmp(strbuf, "random_drawing")) {
+			gameConf.random = atoi(valbuf);
 		} else if(!strcmp(strbuf, "window_maximized")) {
 			gameConf.window_maximized = atoi(valbuf) > 0;
 		} else if(!strcmp(strbuf, "window_width")) {
@@ -1324,6 +1330,7 @@ void Game::SaveConfig() {
 	fprintf(fp, "enable_bot_mode = %d\n", gameConf.enable_bot_mode);
 	fprintf(fp, "quick_animation = %d\n", gameConf.quick_animation);
 	fprintf(fp, "auto_save_replay = %d\n", (chkAutoSaveReplay->isChecked() ? 1 : 0));
+	fprintf(fp, "random_drawing = %d\n", gameConf.random);
 	fprintf(fp, "enable_sound = %d\n", (chkEnableSound->isChecked() ? 1 : 0));
 	fprintf(fp, "enable_music = %d\n", (chkEnableMusic->isChecked() ? 1 : 0));
 	fprintf(fp, "enable_pendulum_scale = %d\n", ((mainGame->chkEnablePScale->isChecked()) ? 1 : 0));
@@ -1555,8 +1562,10 @@ void Game::initUtils() {
 void Game::ClearTextures() {
 	matManager.mCard.setTexture(0, 0);
 	imageManager.tHead[1] = imageManager.GetRandomImage(TEXTURE_HEAD_S);
-	imageManager.tBackGround = imageManager.GetRandomImage(TEXTURE_DUEL);
-	imageManager.tBackGround_deck = imageManager.GetRandomImage(TEXTURE_DECK);
+	if(mainGame->gameConf.random)
+		imageManager.tBackGround_deck = imageManager.GetRandomImage(TEXTURE_DECK);
+	if(mainGame->gameConf.random)
+		imageManager.tBackGround = imageManager.GetRandomImage(TEXTURE_DUEL);
 	imgCard->setImage(imageManager.tCover[0]);
 	scrCardText->setVisible(false);
 	imgCard->setScaleImage(true);
@@ -1724,7 +1733,7 @@ void Game::OnResize() {
 	wANAttribute->setRelativePosition(ResizeWin(500, 200, 830, 285));
 	wANRace->setRelativePosition(ResizeWin(480, 200, 850, 410));
 	wReplaySave->setRelativePosition(ResizeWin(510, 200, 820, 320));
-
+	wRenameDeck->setRelativePosition(ResizeWin(510, 200, 820, 320));
 	stHintMsg->setRelativePosition(ResizeWin(660 - 160 * xScale, 60, 660 + 160 * xScale, 90));
 
 	//sound / music volume bar

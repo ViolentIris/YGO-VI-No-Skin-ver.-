@@ -1881,6 +1881,14 @@ bool ClientField::OnCommonEvent(const irr::SEvent& event) {
 				return true;
 				break;
 			}
+			case CHECKBOX_RDM: {
+				mainGame->gameConf.random = mainGame->chkMRandom->isChecked() ? 1 : 0;
+				return true;
+				break;
+			}
+				return true;
+				break;
+			}
 			}
 			break;
 		}
