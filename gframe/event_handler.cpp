@@ -1886,9 +1886,6 @@ bool ClientField::OnCommonEvent(const irr::SEvent& event) {
 				return true;
 				break;
 			}
-				return true;
-				break;
-			}
 			}
 			break;
 		}

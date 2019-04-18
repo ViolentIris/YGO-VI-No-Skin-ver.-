@@ -58,6 +58,7 @@ struct Config {
 	int window_width;
 	int window_height;
 	bool resize_popup_menu;
+	int random;
 };
 
 struct DuelInfo {
