@@ -457,6 +457,9 @@ public:
 	//auto close message
 	irr::gui::IGUIWindow* wACMessage;
 	irr::gui::IGUIStaticText* stACMessage;
+	//auto center message
+	irr::gui::IGUIWindow* wASMessage;
+	irr::gui::IGUIStaticText* stASMessage;
 	//yes/no
 	irr::gui::IGUIWindow* wQuery;
 	irr::gui::IGUIStaticText* stQMessage;
