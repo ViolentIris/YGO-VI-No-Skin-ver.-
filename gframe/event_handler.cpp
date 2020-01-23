@@ -2592,7 +2592,6 @@ void ClientField::CancelOrFinish() {
 		}
 		break;
 	}
-	case MSG_SORT_CHAIN:
 	case MSG_SORT_CARD: {
 		if(mainGame->wCardSelect->isVisible()) {
 			DuelClient::SetResponseI(-1);
