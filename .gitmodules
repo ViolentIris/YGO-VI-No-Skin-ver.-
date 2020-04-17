@@ -4,6 +4,3 @@
 [submodule "ocgcore"]
 	path = ocgcore
 	url = https://github.com/Fluorohydride/ygopro-core.git
-[submodule "field"]
-	path = field
-	url = https://github.com/moecube/ygopro-images-field.git
