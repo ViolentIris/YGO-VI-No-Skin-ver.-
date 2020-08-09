@@ -1680,7 +1680,6 @@ void Game::initUtils() {
 	FileSystem::MakeDir("replay");
 	//files in ygopro-starter-pack
 	FileSystem::MakeDir("deck");
-	FileSystem::MakeDir("single");
 	//original files
 	FileSystem::MakeDir("textures");
 	//subdirs in textures
